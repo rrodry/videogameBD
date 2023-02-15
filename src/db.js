@@ -3,14 +3,13 @@ const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 const {
-  DB_USER, DB_PASSWORD, DB_HOST,BD_NAME,
+  DB_USER, DB_PASSWORD, DB_HOST,BD_NAME,BD_PORT
 } = process.env;
-
-const sequelize = new Sequelize("bd_test","root","",{
-  host:'localhost',
-  dialect:'mysql'
+console.log(DB_USER);
+const sequelize = new Sequelize(`mysql://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${BD_PORT}/railway`, {
+  logging: false, // set to console.log to see the raw SQL queries
+  native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
-
 
 const basename = path.basename(__filename);
 
