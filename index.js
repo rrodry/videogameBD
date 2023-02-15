@@ -19,7 +19,7 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
-const { APIKEY } = process.env
+const { APIKEY, BD_PORT } = process.env
 const { Videogame , Gender} = require('./src/db');
 const  axios  = require('axios')
 
@@ -39,7 +39,7 @@ return genres
 
 conn.sync({ force: true }).then(() => {
   getGenders()
-  server.listen(3001, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+  server.listen(BD_PORT, () => {
+    console.log(`%s listening at ${BD_PORT}`); // eslint-disable-line no-console
   })
 });
