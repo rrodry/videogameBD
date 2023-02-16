@@ -39,7 +39,7 @@ return genres
 
 conn.sync({ force: true }).then(() => {
   getGenders()
-  server.listen(BD_PORT, () => {
-    console.log(`%s listening at ${BD_PORT}`); // eslint-disable-line no-console
+  server.listen(3000, () => {
+    console.log(`%s listening at 3000`); // eslint-disable-line no-console
   })
 });
