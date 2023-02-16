@@ -5,7 +5,6 @@ const { Router } = require('express')
 const  axios  = require('axios')
 const { APIKEY } = require('../config.js')
 const { Videogame , Gender} = require('../db');
-
 const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
