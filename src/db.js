@@ -4,22 +4,20 @@ const fs = require('fs');
 const path = require('path');
 const {
   DB_USER, DB_PASSWORD, DB_HOST,BD_NAME,BD_PORT
-} = process.env;
-
+} = require('./config')
 const sequelize = new Sequelize(`mysql://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${BD_PORT}/${BD_NAME}`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
 
-
+console.log(DB_HOST);
 const basename = path.basename(__filename);
 
 sequelize.authenticate()
   .then(()=>{console.log("conectado");})
   .catch((e)=>{
     console.log(console.log('ERROR ES: '+ e));
-  })
-
+})
 const modelDefiners = [];
 
 // Leemos todos los archivos de la carpeta Models, los requerimos y agregamos al arreglo modelDefiners

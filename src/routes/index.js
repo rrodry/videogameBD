@@ -3,9 +3,8 @@ const { Router } = require('express')
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 const  axios  = require('axios')
-const { APIKEY } = process.env
+const { APIKEY } = require('../config.js')
 const { Videogame , Gender} = require('../db');
-console.log("API KEY ESSSSSS"+APIKEY);
 
 const router = Router();
 // Configurar los routers
